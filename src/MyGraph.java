@@ -4,4 +4,8 @@ public class MyGraph<V> {
     public MyGraph(){
         graph = new HashMap<>();
     }
+
+    public void addEdge(Vertex source, Vertex destination, double weight){
+        Edge edge = new Edge(source, destination, weight);
+    }
 }
