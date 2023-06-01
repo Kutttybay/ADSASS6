@@ -26,4 +26,27 @@ public class MyGraph<V> {
         }
     }
 
+    //Method for search data present in Graph
+    public boolean search(Vertex start, V target){
+        Set<Vertex> visited = new HashSet<>();
+        Queue<Vertex> queue = new LinkedList<>();
+        visited.add(start);
+        queue.add(start);
+        while(!queue.isEmpty()){
+            Vertex currVertex = queue.poll();
+            if (currVertex.getData().equals(target)){
+                return true;
+            }
+            Set<Vertex<V>> neighbors = currVertex.getAdjVertices().keySet();
+            for (Vertex<V> neighbour : neighbors){
+                if (!visited.contains(neighbour)){
+                    visited.add(neighbour);
+                    queue.add(neighbour);
+                }
+            }
+        }
+        return false;
+    }
+
+
 }
