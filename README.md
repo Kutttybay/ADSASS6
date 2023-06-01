@@ -1,5 +1,6 @@
 # MyGraph
 ## addEdge
+
 ``` java
     public void addEdge(Vertex source, Vertex destination, double weight){
         Edge edge = new Edge(source, destination, weight);
@@ -8,10 +9,12 @@
         graph.get(source).add(edge);
     }
 ```
+
 Description : Adds an edge with a weight between the source and destination vertices.
 <br/>
 <hr/>
 ## showGraph
+
 ``` java
     public void showGraph(){
         for (Map.Entry<Vertex, List<Edge<V>>> entry : graph.entrySet()){
@@ -26,8 +29,10 @@ Description : Adds an edge with a weight between the source and destination vert
         }
     }
 ```
+
 Description : Displays the graph information, including vertices and edges.
 ## seacrh
+
 ``` java 
     public boolean search(Vertex start, V target){
         Set<Vertex> visited = new HashSet<>();
@@ -76,11 +81,13 @@ Description : Displays the graph information, including vertices and edges.
         return false;
     }
 ```
+
 Description : Searches for the specified target data/vertex within the graph starting from the given start vertex. Returns true if the target data is found, otherwise false.
 
 <br/>
 <hr/>
 ## DijkstraSearch
+
 ``` java
     public Map<Vertex, Double> DijkstraSearch(Vertex start) {
         Map<Vertex, Double> distances = new HashMap<>();
@@ -113,10 +120,12 @@ Description : Searches for the specified target data/vertex within the graph sta
         return distances;
     }
 ```
+
 Description : Performs Dijkstra's shortest path algorithm starting from the specified start vertex. Returns a map containing the distances from the start vertex to all other vertices in the graph.
 <br/>
 <hr/>
 ## BFS
+
 ``` java
     public void BFS(Vertex<V> start) {
         Set<Vertex<V>> visited = new HashSet<>();
@@ -136,5 +145,6 @@ Description : Performs Dijkstra's shortest path algorithm starting from the spec
         }
     }
 ```
+
 Description : Conducts a breadth-first search (BFS) starting from the specified start vertex. Prints the visited vertices in breadth-first order.
 <hr/>
