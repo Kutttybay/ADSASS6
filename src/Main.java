@@ -12,5 +12,7 @@ public class Main {
         myGraph.addEdge(x2, x4, 7d);
         myGraph.addEdge(x2, x5, 8d);
 
+        myGraph.DijkstraSearch(x1);
+        myGraph.BFS(x2);
     }
 }
