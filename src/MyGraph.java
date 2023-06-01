@@ -105,4 +105,23 @@ public class MyGraph<V> {
         }
         return distances;
     }
+
+    // BFS start from the start vertex
+    public void BFS(Vertex<V> start) {
+        Set<Vertex<V>> visited = new HashSet<>();
+        Queue<Vertex<V>> queue = new LinkedList<>();
+        queue.add(start);
+        visited.add(start);
+        while (!queue.isEmpty()) {
+            Vertex<V> currentVertex = queue.poll();
+            System.out.print(currentVertex + " ");
+            Map<Vertex<V>, Double> adjVertices = currentVertex.getAdjVertices();
+            for (Vertex<V> neighbor : adjVertices.keySet()) {
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.add(neighbor);
+                }
+            }
+        }
+    }
 }
