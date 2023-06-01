@@ -12,4 +12,18 @@ public class MyGraph<V> {
         graph.get(source).add(edge);
     }
 
+    // Method for show graph with vertex and edge information
+    public void showGraph(){
+        for (Map.Entry<Vertex, List<Edge<V>>> entry : graph.entrySet()){
+            Vertex<V> vertex = entry.getKey();
+            List<Edge<V>> edges = entry.getValue();
+            System.out.println(vertex + ">");
+            for (Edge<V> edge : edges){
+                Vertex<V> destination = edge.getDest();
+                double weight = edge.getWeight();
+                System.out.println(destination + "(" + weight + ")");
+            }
+        }
+    }
+
 }
