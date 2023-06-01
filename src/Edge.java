@@ -1,7 +1,7 @@
 public class Edge<V> {
     private Vertex<V> source;
     private Vertex<V> dest;
-    private Double<V> weight;
+    private Double  weight;
 
     public Edge(Vertex source, Vertex dest, Double weight){
         this.source = source;
@@ -25,11 +25,11 @@ public class Edge<V> {
         this.dest = dest;
     }
 
-    public Double<V> getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(Double<V> weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 }
