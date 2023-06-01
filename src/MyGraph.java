@@ -48,5 +48,35 @@ public class MyGraph<V> {
         return false;
     }
 
-
+    // this method perfor to Dijkstra's shortest path algorithm starting from the specified start vertex
+    public Map<Vertex, Double> DijkstraSearch(Vertex start) {
+        Map<Vertex, Double> distances = new HashMap<>();
+        for (Vertex node : graph.keySet()) {
+            distances.put(node, Double.POSITIVE_INFINITY);
+        }
+        distances.put(start, 0d);
+        PriorityQueue<Vertex> queue = new PriorityQueue<>(Comparator.comparingDouble(distances::get));
+        queue.add(start);
+        while (!queue.isEmpty()) {
+            Vertex currentVertex = queue.poll();
+            List<Edge<V>> neighbors = graph.get(currentVertex);
+            if (neighbors == null) {
+                continue;
+            }
+            for (Edge<V> neighbor : neighbors) {
+                Vertex<V> destination = neighbor.getDest();
+                Double currentDistance = distances.get(currentVertex);
+                if (currentDistance == null) {
+                    continue;
+                }
+                double distance = currentDistance + neighbor.getWeight();
+                Double destinationDistance = distances.get(destination);
+                if (destinationDistance == null || distance < destinationDistance) {
+                    distances.put(destination, distance);
+                    queue.add(destination);
+                }
+            }
+        }
+        return distances;
+    }
 }
